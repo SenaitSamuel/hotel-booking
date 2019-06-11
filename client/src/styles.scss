@@ -1,0 +1,31 @@
+$main-bg-color: #ba97bd;
+$hover-color: #fa8900;
+$button-color: #f55600;
+$white-color: #ffffff;
+$form-color: #e5e5e6;
+
+.page-wrapper {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+}
+ .btn-block {
+    margin: 0 !important;
+}
+.btn{
+  min-width:150px;
+
+
+&:hover{
+            color:black !important;
+            cursor: pointer;
+            background-color: $hover-color !important;
+     }
+
+  }
+.btn-primary {
+    color: #fff;
+    background-color:$button-color !important;
+    border-color: $button-color !important;
+
+}
