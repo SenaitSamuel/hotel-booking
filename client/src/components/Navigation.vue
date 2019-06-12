@@ -13,9 +13,6 @@
           <li class=" [ nav-item  p-3 ] ">
             <router-link class= "nav-link" to="/Hotel">Hotel</router-link>
           </li>
-          <li class=" [ nav-item  p-3 ] ">
-            <router-link class= "nav-link" to="/searchFilter">Search </router-link>
-          </li>
           <li class=" [ nav-item p-3 ] ">
            <router-link class= "nav-link" to="/Enquiry">Enquiry</router-link>
           </li>
@@ -40,12 +37,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
 $main-bg-color: #301133;
 $hover-color: #fa8900;
 $button-color: #f55600;
 $white-color: #ffffff;
 $form-color: #e5e5e6;
+
 
 .bg-dark {
     background-color: $main-bg-color !important;

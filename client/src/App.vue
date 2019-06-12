@@ -5,6 +5,12 @@
 </template>
 
 <style lang="scss">
+
+$main-bg-color: #301133;
+$hover-color: #fa8900;
+$button-color: #f55600;
+$white-color: #ffffff;
+$form-color: #e5e5e6;
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

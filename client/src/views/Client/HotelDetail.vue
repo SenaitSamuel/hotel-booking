@@ -1,5 +1,5 @@
 <template>
-  <div class="page-wrapper">
+  <div class=" [ page-wrapper ] ">
      <Navigation/>
      <div class=" [ container mt-5 ] [ container-hoteldetail ] ">
       <div v-for=" (hotels, index) in establishments " :key=" hotels.index">
@@ -49,7 +49,6 @@ export default {
        fetchData: function () {
            axios.get('./establishments.json')
            .then( response => this.establishments = response.data);
-
 
      }
 

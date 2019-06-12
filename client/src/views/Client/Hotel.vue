@@ -1,33 +1,32 @@
 <template>
-  <div class="page-wrapper">
+  <div class=" [ page-wrapper ] ">
      <Navigation/>
-     <div class="jumbotron p-5" :style="setBackgroundImage">
-       <h1 class="display-4">Hello, world!</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+     <div class=" [ jumbotron ]  [ p-5 ] " :style="setBackgroundImage">
+       <h6 class=" [ display-4 text-white p-3 ] ">Whatever accommodations you’re looking for, <br>we've got them...</h6>
          <hr class="my-4">
-       <router-link to="/Enquiry" class="btn btn-primary  mt-4" tag="button">Book now</router-link>
+       <router-link to="/Enquiry" class=" [ btn btn-primary ]  [ mt-4 ] " tag="button">Book now</router-link>
        </div>
         <!-- Navbar Search -->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-      <div class="input-group">
-        <input type="text" class="form-control" v-model="search" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary btn-sm" type="button">
-            <i class="fas fa-search"></i>
+    <form class=" [ d-none d-md-inline-block form-inline ]  [ ml-auto mr-0 mr-md-3 my-2 my-md-0 ] ">
+      <div class=" [ input-group ] ">
+        <input type="text" class=" [ form-control ] " v-model="search" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+        <div class=" [ input-group-append ] ">
+          <button class=" [ btn btn-primary btn-sm  ] " type="button">
+            <i class=" [ fas fa-search ] "></i>
           </button>
         </div>
       </div>
     </form>
-     <div class="container">
-        <div class="row">
-       <div v-for="(hotel, index) in  searchFilter " :key="hotel.index" class="col-md-4 mt-3 mb-3 " >
-         <div class="card bg-light mb-4">
+     <div class=" [ container ] ">
+        <div class=" [ row ] ">
+       <div v-for="(hotel, index) in  searchFilter " :key="index" class=" [ col-md-4  ] [ mt-3 mb-3 ]  " >
+         <div class=" [ card ]   [ bg-light mb-4 ] ">
             <HotelComponent
               :image=" hotel.imageUrl "
               :name=" hotel.establishmentName"
               :price=" hotel.price"
             />
-            <router-link v-bind:to="'/hotelDetail/' + hotel.id"  class="btn btn-primary btn-lg btn-block" tag="button">View More</router-link>
+            <router-link v-bind:to="'/hotelDetail/' + hotel.id"  class=" [ btn btn-primary btn-lg btn-block ] " tag="button">View More</router-link>
           </div>
         </div>
      </div>

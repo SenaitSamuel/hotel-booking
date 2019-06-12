@@ -1,21 +1,21 @@
 <template>
-  <div class="page-wrapper">
-     <div class="login-page">
+  <div class=" [ page-wrapper ] ">
+     <div class=" [ login-page ] ">
   <div class="form">
-    <form  @submit.prevent="registeredForm" class="register-form">
-      	<div class="input-group form-group mb-4">
-						<input type="text" placeholder="name" class="form-control p-3" v-model="registeredUser.name" required />
+    <form  @submit.prevent="registeredForm" class=" [ register-form ] ">
+      	<div class=" [ input-group form-group ]  [ mb-4 ] ">
+						<input type="text" placeholder="name" class=" [ form-control ]  [ p-3 ] " v-model="registeredUser.name" required />
 					</div>
 
-          <div class="input-group form-group mb-4">
-					 <input type="text" placeholder="User name" class="form-control p-2"  v-model="registeredUser.username" required />
+          <div class=" [ input-group form-group ]  [ mb-4 ] ">
+					 <input type="text" placeholder="User name" class=" [ form-control ]  [ p-2 ] "  v-model="registeredUser.username" required />
 					</div>
           <div class="input-group form-group mb-4">
-					 <input type="password" placeholder="password" class="form-control p-3"  v-model="registeredUser.password" required />
+					 <input type="password" placeholder="password" class=" [ form-control ]  [ p-3 ] "  v-model="registeredUser.password" required />
 					</div>
-           <div class="form-group mb-4">
-					 <button type="submit" class="btn btn-primary btn-block " @click="login" >Create</button>
-      <p class="message">Already registeredUser? <a href="#" @click="signIn" >Sign In</a></p>
+           <div class=" [ form-group ]  [ mb-4 ] ">
+					 <button type="submit" class=" [ btn btn-primary btn-block ]  " @click="login" >Create</button>
+      <p class=" [ message ] ">Already registeredUser? <a href="#" @click="signIn" >Sign In</a></p>
 					</div>
 
 

@@ -1,7 +1,7 @@
 <template>
-<div class="page-wrapper">
+<div class=" [ page-wrapper ] ">
     <Navigation/>
-    <ContactComponent msg="Welcome to contact"/>
+    <ContactComponent/>
      <Footer/>
   </div>
 </template>
