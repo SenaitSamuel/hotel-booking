@@ -7,10 +7,10 @@
                         <hr class=" [ bg-light ]   [ mb-5 ] ">
                 </div>
 
-                <form @submit.prevent="Submit" method="POST" action="http://localhost/hotel-booking/server/add-establishments-success.php">
+                <form @submit="Submit" id="myForm" method="POST" action="http://localhost/hotel-booking/server/add-establishments-success.php">
                 <div class=" [ form-group row ]  [ mb-4 ] " :class="{error: errors.has('name')}" >
                  <label for="establishmentName" class="col-sm-3 col-form-label" >Establishment Name:</label>
-                  <input type="text" name="establishmentName" id="establishmentName" class="form-control p-4" v-validate="'required|alpha'" v-model="establishmentName">
+                  <input type="text" name="establishmentName" id="establishmentName" class="form-control p-4" v-validate="'required'" v-model="establishmentName">
                   <span class="error" v-if="errors.has('establishmentName')">{{errors.first('establishmentName')}}</span>
                 </div>
                  <div class=" [ form-group row ]  [ mb-4 ] " :class="{error: errors.has('email')}" >
@@ -20,7 +20,7 @@
                 </div>
                  <div class=" [ form-group row ]  [ mb-4 ] " :class="{error: errors.has('image')}" >
                   <label for="imageUrl" class=" [ col-sm-3 col-form-label ] " >Image URL</label>
-                  <input type="text" name="imageUrl" id="imageUrl" class=" [ form-control ]  [ p-4 ] "  v-validate="'required|url'" v-model="imageUrl">
+                  <input type="text" name="imageUrl" id="imageUrl" class=" [ form-control ]  [ p-4 ] "  v-validate="'required'" v-model="imageUrl">
                   <span class="error" v-if="errors.has('imageUrl')">{{errors.first('imageUrl')}}</span>
                 </div>
                  <div class=" [ form-group row ]  [ mb-4 ]   " :class="{error: errors.has('price')}" >
@@ -77,14 +77,13 @@ export default {
       };
       },
     methods: {
-      Submit: function(event) {
-        this.$validator.validateAll().then((result) => {
-        if (result) {
-          // eslint-disable-next-line
-          alert('Form Submitted!');
-          return;
-        }
+      Submit(e) {
+        e.preventDefault();
+        this.$validator.validateAll().then(() => {
+           document.querySelector('#myForm').submit();
 
+      }).catch(()=> {
+        return false
       });
     },
 
