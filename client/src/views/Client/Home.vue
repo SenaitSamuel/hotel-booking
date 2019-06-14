@@ -1,15 +1,15 @@
 <template >
-<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+<div id="carouselExampleIndicators" class=" [ carousel ]  [ slide  carousel-fade ] " data-ride="carousel">
   <!-- Indicators -->
-  <ol class="carousel-indicators">
+  <ol class=" [ carousel-indicators  ] ">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
   </ol>
   <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="carousel-item" v-for="(banner, idx) in banners" :key="idx" :class="{ active: idx==0 }" >
+  <div class=" [ carousel-inner ] ">
+    <div class=" [ carousel-item ] " v-for="(banner, idx) in banners" :key="idx" :class="{ active: idx==0 }" >
        <HomeComponent :image="banner.url"
                                      :title="banner.title"
                                      :subtitle="banner.subtitle"
@@ -17,23 +17,22 @@
     </div>
   </div>
   <!-- Controls -->
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <a class=" [ carousel-control-prev ] " href="#carouselExampleIndicators" role="button" data-slide="prev">
+<span class=" [ carousel-control-prev-icon ] " aria-hidden="true"></span>
 <span class="sr-only">Previous</span>
 </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-<span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <a class=" [ carousel-control-next ] " href="#carouselExampleIndicators" role="button" data-slide="next">
+<span class=" [ carousel-control-next-icon ] " aria-hidden="true"></span>
 <span class="sr-only">Next</span>
 </a>
 </div>
-
     </template>
 
 <script>
 import HomeComponent from '@/components/Client/HomeComponent.vue';
 export default {
     components : {
-     HomeComponent
+     HomeComponent,
     },
 
     data(){
@@ -72,6 +71,5 @@ export default {
 </script>
 
 <style <style lang="scss" scoped>
-
 </style>
 

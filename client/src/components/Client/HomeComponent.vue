@@ -1,6 +1,6 @@
 <template>
 <div class=" [ carousel ] " >
-        <img class=" [ d-block w-100 ] " :src="image" alt="Image slide"  :style="setBackgroundImage">
+        <div class=" [ carousel-image ]  " :src="image" alt="Image slide"  :style="setBackgroundImage"></div>
         <div class=" [ carousel-layer ] "></div>
         <div class=" [ carousel-caption ] ">
           <h1 class=" [ h1-responsive mb-5 ]  " >{{ title }} </h1>
@@ -8,8 +8,8 @@
           <router-link to="/Hotel" class=" [ btn btn-primary btn-lg ]  [ mt-3 ] " tag="button">Explore More</router-link>
 
          </div>
+   </div>
 
-  </div>
 </template>
 
 <script>
@@ -19,7 +19,7 @@ export default {
      computed:{
         setBackgroundImage(){
             return {
-              backgroundImage : "linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url("+this.image+")"}
+              backgroundImage : " url("+this.image+")"}
         }
 },
 
@@ -27,18 +27,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.carousel-layer {
+.carousel{
+  .carousel-layer {
     background-color: black;
     position: absolute;
     opacity: 0.5;
     top: 0;
     left: 0;
+    height:100%;
     width: 100%;
-    height: 100%;
 }
-img{
-   height:100vh;
-    width: 100vw;
+.carousel-image{
+  height: 100vh;
+    width: 100%;
     background-size: cover;
     background-position:center;
     background-repeat: no-repeat;
@@ -59,18 +60,21 @@ img{
     top: 40%;
     bottom: auto;
 }
-@media only screen and (max-width : 767px) {
- img{
-    background-size:550px !important ;
+
 }
+
+@media only screen and (max-width : 767px) {
+
 h1{
-  font-size: 28px;
+  font-size: 30px;
   margin-top: 10px;
 
 }
 h3{
-  font-size: 20px;
+  font-size: 22px;
 }
-
+.carousel-caption {
+    top: 20%;
+}
 }
 </style>

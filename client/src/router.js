@@ -12,7 +12,7 @@ import Enquiries from './views/Admin/Enquiries.vue';
 import Messages from './views/Admin/Messages.vue';
 import Overview from './views/Admin/Overview.vue';
 import NewEstablishment from './views/Admin/NewEstablishment.vue';
-
+import SearchFilter from './views/Client/SearchFilter.vue';
 
 Vue.use(Router);
 
@@ -28,7 +28,11 @@ export default new Router({
       name: 'hotel',
       component: Hotel,
     },
-
+    {
+      path: '/searchFilter',
+      name: 'searchFilter',
+      component: SearchFilter,
+    },
     {
       path: '/hotelDetail/:id',
       name: 'hotelDetail',

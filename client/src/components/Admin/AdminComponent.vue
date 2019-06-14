@@ -1,6 +1,7 @@
 <template>
   <div class=" [ page-wrapper ] ">
      <div class=" [ login-page ] ">
+       <h1>Hotel</h1>
   <div class="form">
     <form  @submit.prevent="registeredForm" class=" [ register-form ] ">
       	<div class=" [ input-group form-group ]  [ mb-4 ] ">

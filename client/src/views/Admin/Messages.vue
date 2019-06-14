@@ -1,5 +1,5 @@
 <template>
-<div class="container-fluid ">
+<div class="container">
 <!-- As a heading -->
 
 <ol class="breadcrumb">
@@ -14,8 +14,8 @@
             <i class="fas fa-table"></i>
            List of Messages</div>
           <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+           <div class="table-responsive table-full-width">
+            <table class="table table-hover table-striped" id="dataTable" cellspacing="0">
     <thead>
     <tr>
      <th >client Name</th>

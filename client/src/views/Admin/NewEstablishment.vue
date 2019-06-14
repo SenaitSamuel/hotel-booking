@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid ">
+  <div class="container ">
 <!-- As a heading -->
 
 <ol class="breadcrumb">

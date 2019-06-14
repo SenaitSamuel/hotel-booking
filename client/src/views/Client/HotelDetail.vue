@@ -2,7 +2,7 @@
   <div class=" [ page-wrapper ] ">
      <Navigation/>
      <div class=" [ container mt-5 ] [ container-hoteldetail ] ">
-      <div v-for=" (hotels, index) in establishments " :key=" hotels.index">
+      <div v-for=" (hotels, index) in establishments " :key="index">
          <div v-if="hotelId == hotels.id ">
             <HotelDetailComponent
               :image=" hotels.imageUrl "

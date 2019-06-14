@@ -5,7 +5,9 @@
 </template>
 
 <style lang="scss">
-
+body{
+  min-height: 100vh;
+}
 $main-bg-color: #301133;
 $hover-color: #fa8900;
 $button-color: #f55600;

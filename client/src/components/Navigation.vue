@@ -13,6 +13,9 @@
           <li class=" [ nav-item  p-3 ] ">
             <router-link class= "nav-link" to="/Hotel">Hotel</router-link>
           </li>
+          <li class=" [ nav-item  p-3 ] ">
+            <router-link class= "nav-link" to="/searchFilter">searchFilter</router-link>
+          </li>
           <li class=" [ nav-item p-3 ] ">
            <router-link class= "nav-link" to="/Enquiry">Enquiry</router-link>
           </li>

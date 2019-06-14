@@ -4,7 +4,7 @@
 
     <a class="navbar-brand mr-1 text-white" >Hotel</a>
 
-    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" @click="closeMenu"  href="#">
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle"  @click="show = !show" href="#">
      <i class="fas fa-bars"></i>
     </button>
 
@@ -26,14 +26,18 @@
           <i class="fas fa-user-circle fa-fw "></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+          <a class="dropdown-item btn btn-primary" href="#" data-toggle="modal" data-target="#logoutModal"  @click="logout()">
+            <i class="fa fa-power-off"></i>
+                 <span>Logout</span>
+            </a>
         </div>
       </li>
     </ul>
   </nav>
  <!-- Sidebar -->
     <div id="sidebar-wrapper">
-    <ul class="sidebar navbar-nav p-2">
+      <transition name="slide">
+    <ul class="sidebar navbar-nav p-2" v-show="show">
       <li class="nav-item active">
         <router-link class="nav-link" to="/dashBoard/Overview">
           <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -56,7 +60,7 @@
                    </a>
                 </li>
     </ul>
-
+  </transition>
         <!-- Page Content  -->
 
 
@@ -83,7 +87,7 @@ export default {
   data(){
       return{
         name: 'Admin',
-        show: false,
+        show: true,
       }
   },
    beforeCreate: function () {
@@ -108,17 +112,18 @@ export default {
 </script>
 
 <style scoped lang="scss" >
-$navbar-base-height: 56px;
-// Change below variable to change the width of the sidenav
-$sidebar-base-width: 225px;
-// Change below variable to change the width of the sidenav when collapsed
-$sidebar-collapsed-width: 90px;
-// Change below variable to change the height of the sticky footer
+
 $main-bg-color: #301133;
 $hover-color: #fa8900;
 $button-color: #f55600;
 $white-color: #ffffff;
 $form-color: #e5e5e6;
+
+
+
+.slide-enter {
+  transform: translate(-100%, 0);
+}
 
 .bg-dark {
     background-color: $main-bg-color !important;
@@ -167,9 +172,9 @@ $form-color: #e5e5e6;
 }
 
 .sidebar {
-  width: $sidebar-collapsed-width !important;
+
   background-color: $main-bg-color;
-  min-height: calc(100vh - #{$navbar-base-height});
+  min-height: 100vh;
   .nav-item {
     .nav-link {
       color: $white-color;
@@ -198,7 +203,6 @@ $form-color: #e5e5e6;
     .nav-link {
       text-align: center;
       padding: 0.75rem 1rem;
-      width: $sidebar-collapsed-width;
       span {
         font-size: 0.65rem;
         display: block;
@@ -207,7 +211,6 @@ $form-color: #e5e5e6;
     .dropdown-menu {
       position: absolute !important;
       transform: none !important;
-      left: calc(#{$sidebar-collapsed-width} + 0.5rem) !important;
       margin: 0;
       &.dropup {
         bottom: 0;
@@ -223,7 +226,7 @@ $form-color: #e5e5e6;
 
 @media (min-width: 768px) {
   .sidebar {
-    width: $sidebar-base-width !important;
+
 
     .nav-item {
       .nav-link {
@@ -231,7 +234,7 @@ $form-color: #e5e5e6;
         width: 100%;
         text-align: left;
         padding: 1rem;
-        width: $sidebar-base-width;
+
         span {
           font-size: 1rem;
           display: inline;
