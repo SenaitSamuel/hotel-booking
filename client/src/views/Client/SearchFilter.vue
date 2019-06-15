@@ -6,7 +6,15 @@
         :disabled="false"
         placeholder="Please select an animal"
       />
-
+      <img :src="image" class="card-img-top" alt="Hotel image">
+      <div class="card-body">
+        <h5 class="card-title">{{ selected.establishmentName }}</h5>
+        <h5 class="card-title"><span>$ {{ price }} </span></h5>
+      </div>
+      <p >Selected animal: {{ selected.establishmentName || 'none' }}</p>
+      <p >Selected animal: {{ selected.imageUrl || 'none' }}</p>
+      <p >Selected animal: {{ selected.price || 'none' }}</p>
+      <br />
 
     </div>
 </template>

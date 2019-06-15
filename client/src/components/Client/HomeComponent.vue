@@ -5,7 +5,9 @@
         <div class=" [ carousel-caption ] ">
           <h1 class=" [ h1-responsive mb-5 ]  " >{{ title }} </h1>
           <h3 class=" [ h1-responsive mb-5 ]  " >{{ subtitle }} </h3>
-          <router-link to="/Hotel" class=" [ btn btn-primary btn-lg ]  [ mt-3 ] " tag="button">Explore More</router-link>
+          <router-link to="/Hotel" class=" [ btn btn-primary btn-lg ]  [ mt-3 ] " tag="button">Explore More &rarr;
+          <i class="far fa-arrow-right p-2"></i>
+          </router-link>
 
          </div>
    </div>
@@ -60,7 +62,11 @@ export default {
     top: 40%;
     bottom: auto;
 }
-
+.btn{
+  width: 202px;
+  border-radius: 12px;
+  cursor: pointer;
+}
 }
 
 @media only screen and (max-width : 767px) {

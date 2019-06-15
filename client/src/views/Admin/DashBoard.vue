@@ -1,33 +1,35 @@
 <template>
-<div class="page-wrapper">
-     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+<div class=" [ page-wrapper ] ">
+     <nav class=" [ navbar ]  [ navbar-expand navbar-dark  bg-dark static-top ] ">
 
-    <a class="navbar-brand mr-1 text-white" >Hotel</a>
+    <a class=" [ navbar-brand  ] [ mr-1 text-white ] " >HOLIDAZE</a>
 
-    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle"  @click="show = !show" href="#">
+    <button class=" [ btn btn-link btn-sm ] [ text-white order-1 order-sm-0 ] " id="sidebarToggle"  @click="show = !show" href="#">
      <i class="fas fa-bars"></i>
     </button>
 
     <!-- Navbar Search -->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
+    <form class=" [ form-inline ] [ d-none d-md-inline-block ml-auto mr-0 mr-md-3 my-2 my-md-0 ]   ">
+      <div class=" [ input-group ] ">
+        <input type="text" class=" [ form-control ] " placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+        <div class=" [ input-group-append ] ">
+          <button class=" [ btn ]  [ btn-primary ] " type="button">
             <i class="fas fa-search"></i>
           </button>
         </div>
       </div>
     </form>
     <!-- Navbar -->
-    <ul class="navbar-nav ml-auto ml-md-0">
-      <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user-circle fa-fw "></i>
+    <ul class=" [ navbar-nav ]  [ ml-auto ml-md-0 ] ">
+      <li class=" [ nav-item ]  [ dropdown no-arrow ] ">
+        <a class=" [ nav-link dropdown-toggle ] " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class=" [ fas fa-user-circle fa-fw ]  "></i>
+
+            {{name}}
         </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <a class="dropdown-item btn btn-primary" href="#" data-toggle="modal" data-target="#logoutModal"  @click="logout()">
-            <i class="fa fa-power-off"></i>
+        <div class=" [ dropdown-menu ] [ dropdown-menu-right ] " aria-labelledby="userDropdown">
+          <a class=" [ dropdown-item ]  [ btn btn-primary ] " href="#" data-toggle="modal" data-target="#logoutModal"  @click="logout()">
+            <i class="[ fa fa-power-off ] "></i>
                  <span>Logout</span>
             </a>
         </div>
@@ -35,27 +37,27 @@
     </ul>
   </nav>
  <!-- Sidebar -->
-    <div id="sidebar-wrapper">
+    <div id=" [ sidebar-wrapper ] ">
       <transition name="slide">
-    <ul class="sidebar navbar-nav p-2" v-show="show">
-      <li class="nav-item active">
-        <router-link class="nav-link" to="/dashBoard/Overview">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+    <ul class=" [ sidebar navbar-nav  ] [ p-2 ] " v-show="show">
+      <li class=" [ nav-item ] [ active ] ">
+        <router-link class=" [ nav-link ] " to="/dashBoard/Overview">
+          <i class=" [ fas fa-fw fa-tachometer-alt ] "></i>
           <span>Overview</span>
        </router-link>
       </li>
-      <li class="nav-item ">
-        <router-link class="nav-link" to="/dashBoard/Enquiries">  <span>Enquiries</span></router-link>
+      <li class=" [ nav-item ]  ">
+        <router-link class=" [ nav-link ] " to="/dashBoard/Enquiries">  <span>Enquiries</span></router-link>
          </li>
         <li class="nav-item ">
-          <router-link class="nav-link" to="/dashBoard/Messages"><span>Messages</span> </router-link>
+          <router-link class=" [ nav-link ] " to="/dashBoard/Messages"><span>Messages</span> </router-link>
         </li>
-        <li class="nav-item ">
-          <router-link class="nav-link" to="/dashBoard/NewEstablishment"> <span>New Establishment</span> </router-link>
+        <li class=" [ nav-item ] ">
+          <router-link class=" [ nav-link ] " to="/dashBoard/NewEstablishment"> <span>New Establishment</span> </router-link>
          </li>
-          <li class="nav-item ">
-             <a class="nav-link"  href="#" @click="logout()">
-               <i class="fa fa-power-off"></i>
+          <li class=" [ nav-item ] ">
+             <a class=" [ nav-link ] "  href="#" @click="logout()">
+               <i class=" [ fa fa-power-off ]  "></i>
                  <span>Logout</span>
                    </a>
                 </li>
@@ -64,7 +66,7 @@
         <!-- Page Content  -->
 
 
-<div id="content-wrapper">
+<div id="page-wrapper">
 
         <router-view/>
       </div>
@@ -76,17 +78,13 @@
 
 <script>
 // @ is an alias to /src
-import AdminComponent from '@/components/Admin/AdminComponent.vue';
 
 export default {
   name: 'dashBoard',
-  components: {
-    AdminComponent,
-  },
 
   data(){
       return{
-        name: 'Admin',
+        name:'Admin',
         show: true,
       }
   },
@@ -101,7 +99,7 @@ export default {
 
     $(".sidebar").toggleClass("toggled");
     },
-    logout(){
+     logout(){
        localStorage.clear()
 
       this.$router.push('/admin');

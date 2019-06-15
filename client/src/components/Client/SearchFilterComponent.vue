@@ -1,27 +1,35 @@
 <template>
-  <div class="dropdown" v-if="options">
+  <div class=" [ container ] " >
+    <div class=" [ dropdown ]  [ col-md-6 mt-5 mb-5 justify-content-center ] " v-if="options" >
+            <div class="input-group  ">
+                <input type="text" class="form-control typeahead border-primary border-right-0"
+                 @focus="showOptions()"
+                  @blur="exit()"
+                  @keyup="keyMonitor"
+                  v-model="searchFilter"
+                  :disabled="disabled"
+                  :placeholder="placeholder"
+                  />
 
-    <!-- Dropdown Input -->
-    <input class="dropdown-input"
-      @focus="showOptions()"
-      @blur="exit()"
-      @keyup="keyMonitor"
-      v-model="searchFilter"
-      :disabled="disabled"
-      :placeholder="placeholder" />
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-outline-primary border-left-0">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
 
     <!-- Dropdown Menu -->
-    <div class="dropdown-content"
+    <div class=" [ dropdown-content ]  [ mx-1 ]  "
       v-show="optionsShown">
       <div
-        class="dropdown-item"
+        class="dropdown-item "
         @mousedown="selectOption(option)"
         v-for="(option, index) in filteredOptions"
         :key="index">
           {{ option.establishmentName}}
       </div>
     </div>
-     <div class=" [ container ] ">
+  </div>
         <div class=" [ row ] ">
        <div v-for="(selected, index) in  filteredOptions " :key="index" class=" [ col-md-4  ] [ mt-3 mb-3 ]  " >
          <div class=" [ card ]   [ bg-light mb-4 ] ">
@@ -34,14 +42,13 @@
           </div>
         </div>
      </div>
-
-     </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import HotelComponent from '@/components/Client/HotelComponent.vue';
+import style from '@/styles.scss';
   export default {
     name: 'Dropdown',
     template: 'Dropdown',
@@ -129,21 +136,14 @@ import HotelComponent from '@/components/Client/HotelComponent.vue';
 
 
 <style lang="scss" scoped>
-  .dropdown {
+$hover-color: #fa8900;
+
+ .dropdown {
     position: relative;
     display: block;
-    margin: auto;
-    .dropdown-input {
-      background: #fff;
+    input {
       cursor: pointer;
-      border: 1px solid #e7ecf5;
       border-radius: 3px;
-      color: #333;
-      display: block;
-      font-size: .8em;
-      padding: 6px;
-      min-width: 250px;
-      max-width: 250px;
       &:hover {
         background: #f8f8fa;
       }
@@ -151,28 +151,27 @@ import HotelComponent from '@/components/Client/HotelComponent.vue';
     .dropdown-content {
       position: absolute;
       background-color: #fff;
-      min-width: 248px;
-      max-width: 248px;
+      min-width: 280px;
       max-height: 248px;
       border: 1px solid #e7ecf5;
       box-shadow: 0px -8px 34px 0px rgba(0,0,0,0.05);
       overflow: auto;
       z-index: 1;
+
       .dropdown-item {
         color: black;
+        text-align: left;
         font-size: .7em;
         line-height: 1em;
-        padding: 8px;
         text-decoration: none;
         display: block;
         cursor: pointer;
         &:hover {
-          background-color: #e7ecf5;
+          background-color: $hover-color;
         }
       }
     }
-    .dropdown:hover .dropdowncontent {
-      display: block;
     }
-  }
+
+
 </style>

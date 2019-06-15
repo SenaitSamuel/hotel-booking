@@ -1,12 +1,12 @@
 <template>
-  <div class="container ">
+  <div class=" [ page-wrapper ]  ">
 <!-- As a heading -->
 
-<ol class="breadcrumb">
-          <li class="breadcrumb-item">
+<ol class=" [ breadcrumb ] ">
+          <li class=" [ breadcrumb-item ] ">
             <a href="">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">New Establishment</li>
+          <li class=" [ breadcrumb-item ] [ active ] ">New Establishment</li>
         </ol>
     <NewEstablishmentComponent/>
   </div>

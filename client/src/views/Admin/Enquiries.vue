@@ -1,21 +1,21 @@
 <template>
-<div class="container">
+<div class=" [ page-wrapper ] ">
 <!-- As a heading -->
 
-<ol class="breadcrumb">
-          <li class="breadcrumb-item">
+<ol class=" [ breadcrumb ] ">
+          <li class=" [ breadcrumb-item ] ">
             <a href="#">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">Enquiries</li>
+          <li class=" [ breadcrumb-item ]  [ active ] ">Enquiries</li>
         </ol>
             <!-- List of enquiries -->
-        <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-table"></i>
+        <div class=" [ card ]  [ mb-3] ">
+          <div class=" [ card-header ] ">
+            <i class=" [ fas fa-table ] "></i>
            List of Enquiries</div>
-          <div class="card-body">
-            <div class="table-responsive table-full-width">
-              <table class="table table-hover table-striped" id="dataTable" cellspacing="0">
+          <div class=" [ card-body ] ">
+            <div class=" [ table-responsive ]  [ table-full-width ] ">
+              <table class=" [ table ]  [ table-hover table-striped ] " id="dataTable" cellspacing="0">
                 <thead>
                   <tr>
                     <th >establishment</th>

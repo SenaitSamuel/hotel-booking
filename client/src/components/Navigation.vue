@@ -1,7 +1,7 @@
 <template>
 <nav class=" [ navbar navbar-expand-lg  navbar-dark bg-dark ] " role="navigation" >
         <div class=" [ container ] ">
-          <a class=" [ navbar-brand ] " href="#">Hotel</a>
+          <a class=" [ navbar-brand ] " href="#" >HOLIDAZE</a>
           <button class=" [ navbar-toggler ] " type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <span class=" [ navbar-toggler-icon ] "></span>
             </button>
@@ -68,8 +68,10 @@ $form-color: #e5e5e6;
         color: $white-color;
         font-size:20px;
         &:hover,
+        &:focus,
         &:active {
            color:$hover-color;
+           transition:0.2s
         }
          &.active {
           color: $hover-color !important;

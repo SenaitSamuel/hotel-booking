@@ -19,5 +19,8 @@ module.exports = {
 
         return options
       })
-  }
+  },
+  devServer: {
+    proxy: 'http://backend.test/',
+}
 }

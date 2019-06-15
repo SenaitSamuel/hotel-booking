@@ -1,8 +1,11 @@
+
 $main-bg-color: #ba97bd;
 $hover-color: #fa8900;
 $button-color: #f55600;
 $white-color: #ffffff;
 $form-color: #e5e5e6;
+$font:"https://fonts.googleapis.com/css?family=Open+Sans:400,800";
+
 
 .page-wrapper {
     width: 100%;
@@ -13,11 +16,13 @@ $form-color: #e5e5e6;
     margin: 0 !important;
 }
 .btn{
- 
+    cursor: pointer;
 &:hover{
             color:black !important;
             cursor: pointer;
-            background-color: $hover-color !important;
+             background-color: $hover-color !important;
+             transform:scale(1.05);
+              
      }
 
   }
@@ -27,3 +32,7 @@ $form-color: #e5e5e6;
     border-color: $button-color !important;
 
 }
+
+  span.error {
+    color: #9F3A38;
+  }
