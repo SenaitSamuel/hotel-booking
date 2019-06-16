@@ -1,5 +1,5 @@
 <template>
-<div class= " [ container ]  [ mt-5 ] ">
+<div class= " [ page-wrapper ]  [ mt-5 ] ">
          <div class=" [ row justify-content-center ] ">
             <div class=" [ col-md-6 ]  [ mt-2 bg-light rounded ] ">
                 <div>
@@ -41,7 +41,7 @@
 
 
 <script>
-import style from '@/styles.scss';
+
 export default {
   name: 'EnquiryComponent',
    data: function () {
@@ -97,6 +97,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
 .btn{
   width: 202px;
 }

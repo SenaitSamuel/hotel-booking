@@ -1,18 +1,18 @@
 <template>
-  <div class=" [ container ] " >
-    <div class=" [ dropdown ]  [ col-md-6 mt-5 mb-5 justify-content-center ] " v-if="options" >
+  <div class=" [ container-fluid ] " >
+    <div class=" [ row  row-dropdown mt-0]  [ justify-content-center ] ">
+    <div class=" [ dropdown ]  [ col-md-6 mt-5 mb-5 ] "  >
             <div class="input-group  ">
                 <input type="text" class="form-control typeahead border-primary border-right-0"
                  @focus="showOptions()"
-                  @blur="exit()"
-                  @keyup="keyMonitor"
                   v-model="searchFilter"
-                  :disabled="disabled"
-                  :placeholder="placeholder"
+                    @keydown.down="onDownKey"
+                    @keydown.up="onUpKey"
+                    placeholder="f.eks.Oslo"
                   />
 
                 <div class="input-group-append">
-                    <button type="submit" class="btn btn-outline-primary border-left-0">
+                    <button type="submit" @click="onEnterKey" class="btn btn-outline-primary border-left-0">
                         <i class="fa fa-search"></i>
                     </button>
                 </div>
@@ -24,14 +24,18 @@
       <div
         class="dropdown-item "
         @mousedown="selectOption(option)"
+        @keyEnter="selectOption(option)"
+
         v-for="(option, index) in filteredOptions"
         :key="index">
           {{ option.establishmentName}}
       </div>
     </div>
   </div>
-        <div class=" [ row ] ">
-       <div v-for="(selected, index) in  filteredOptions " :key="index" class=" [ col-md-4  ] [ mt-3 mb-3 ]  " >
+  </div>
+       <div class=" [ container mt-5 ] ">
+       <div class=" [ row ] ">
+       <div v-for="(selected, index) in  filteredOptions " :key="index" class=" [ col-md-4  ] [ mt-3 mb-3 ]  "  >
          <div class=" [ card ]   [ bg-light mb-4 ] ">
             <HotelComponent
               :image=" selected.imageUrl "
@@ -42,6 +46,7 @@
           </div>
         </div>
      </div>
+    </div>
   </div>
 </template>
 
@@ -56,33 +61,13 @@ import style from '@/styles.scss';
     HotelComponent,
 
   },
-    props: {
 
-      placeholder: {
-        type: String,
-        required: false,
-        default: 'Please select an option',
-        note: 'Placeholder of dropdown'
-      },
-      disabled: {
-        type: Boolean,
-        required: false,
-        default: false,
-        note: 'Disable the dropdown'
-      },
-      maxItem: {
-        type: Number,
-        required: false,
-        default: 6,
-        note: 'Max items showing'
-      }
-    },
     data() {
       return {
         selected: {},
         optionsShown: false,
         searchFilter: '',
-        options:[]
+        establishments:[]
       }
     },
       created() {
@@ -92,7 +77,7 @@ import style from '@/styles.scss';
 },
     computed: {
       filteredOptions() {
-      return this.options.filter((hotel) =>{
+      return this.establishments.filter((hotel) =>{
         return hotel.establishmentName.toLowerCase().includes(this.searchFilter.toLowerCase());
       })
     }
@@ -100,7 +85,7 @@ import style from '@/styles.scss';
     methods: {
       fetchData: function () {
            axios.get('./establishments.json' )
-           .then(response => this.options = response.data)
+           .then(response => this.establishments = response.data)
      },
       selectOption(option) {
         this.selected = option;
@@ -109,26 +94,28 @@ import style from '@/styles.scss';
         this.$emit('selected', this.selected);
       },
       showOptions(){
-        if (!this.disabled) {
           this.searchFilter = '';
           this.optionsShown = true;
-        }
       },
-      exit() {
-        if (!this.selected.id) {
-          this.selected = {};
-          this.searchFilter = '';
-        } else {
-          this.searchFilter = this.selected.establishmentName;
-        }
-        this.$emit('selected', this.selected);
-        this.optionsShown = false;
-      },
-      // Selecting when pressing Enter
-      keyMonitor: function(event) {
-        if (event.key === "Enter" && this.filteredOptions[0])
-          this.selectOption(this.filteredOptions[0]);
-      }
+      onUpKey() {
+                if(this.selected == 0) {
+                  return
+                }
+                this.selected  -=1
+            },
+             onDownKey() {
+                if(this.selected >= this.filteredOptions.length-1) {
+                  return
+                }
+                this.selected +=1
+            },
+       onEnterKey() {
+                const option = this.filteredOptions[0]
+                if(option) {
+                    this.selectOption(option)
+                }
+
+            },
     },
 
   };
@@ -136,14 +123,20 @@ import style from '@/styles.scss';
 
 
 <style lang="scss" scoped>
+$form-color: #e5e5e6;
 $hover-color: #fa8900;
 
+ .row-dropdown{
+   background-color:$form-color;
+
+ }
  .dropdown {
     position: relative;
     display: block;
     input {
-      cursor: pointer;
-      border-radius: 3px;
+      cursor:text;
+      border-radius: 10px;
+      border: 1px solid $hover-color;
       &:hover {
         background: #f8f8fa;
       }
@@ -161,6 +154,7 @@ $hover-color: #fa8900;
       .dropdown-item {
         color: black;
         text-align: left;
+        border-bottom: 1px solid grey;
         font-size: .7em;
         line-height: 1em;
         text-decoration: none;

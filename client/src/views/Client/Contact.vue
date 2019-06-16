@@ -11,6 +11,7 @@
 import Navigation from '@/components/Navigation.vue';
 import Footer from '@/components/Footer.vue';
 import ContactComponent from '@/components/Client/ContactComponent.vue';
+import style from '@/styles.scss';
 
 export default {
   name: 'contact',

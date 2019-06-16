@@ -3,7 +3,6 @@ import Router from 'vue-router';
 import Home from './views/Client/Home.vue';
 import Hotel from './views/Client/Hotel.vue';
 import Enquiry from './views/Client/Enquiry.vue';
-import BookingConformation from './views/Client/BookingConformation.vue';
 import Contact from './views/Client/Contact.vue';
 import HotelDetail from './views/Client/HotelDetail.vue';
 import DashBoard from "./views/Admin/DashBoard.vue";
@@ -36,11 +35,6 @@ export default new Router({
       path: '/enquiry',
       name: 'enquiry',
       component: Enquiry,
-    },
-    {
-      path: '/bookingConformation',
-      name: 'bookingConformation',
-      component: BookingConformation,
     },
     {
       path: '/contact',

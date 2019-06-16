@@ -8,6 +8,7 @@
 
 <script>
 // @ is an alias to /src
+import style from '@/styles.scss';
 import Navigation from '@/components/Navigation.vue';
 import Footer from '@/components/Footer.vue';
 import EnquiryComponent from '@/components/Client/EnquiryComponent.vue';

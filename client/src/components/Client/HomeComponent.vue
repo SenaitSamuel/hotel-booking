@@ -5,7 +5,7 @@
         <div class=" [ carousel-caption ] ">
           <h1 class=" [ h1-responsive mb-5 ]  " >{{ title }} </h1>
           <h3 class=" [ h1-responsive mb-5 ]  " >{{ subtitle }} </h3>
-          <router-link to="/Hotel" class=" [ btn btn-primary btn-lg ]  [ mt-3 ] " tag="button">Explore More &rarr;
+          <router-link to="/Hotel" class=" [ btn btn-primary btn-lg text-center ]  [ mt-3 ] " tag="button">Explore More &rarr;
           <i class="far fa-arrow-right p-2"></i>
           </router-link>
 

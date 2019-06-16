@@ -9,10 +9,8 @@
         <!-- Navbar Search -->
      <!-- Navbar Search -->
      <SearchFilterComponent
-        :options="options"
-        v-on:selected="validateSelection"
-        :disabled="false"
-        placeholder="f.eks.Oslo"
+       :establishments="establishments"
+        v-on:selected="hotelSelection"
       />
 
      <Footer/>
@@ -37,17 +35,15 @@ export default {
   data() {
     return{
       // baseUrl: process.env.VUE_APP_BASE_URL,
-     options: [  ],
+     establishments: [  ],
       selected:"",
       heroImage:"https://images.unsplash.com/photo-1439130490301-25e322d88054?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80",
       }
     },
 
     methods: {
-      validateSelection(selection) {
+      hotelSelection(selection) {
             this.selected = selection;
-            console.log(selection.establishmentName+' has been selected');
-
           },
   },
   computed:{
@@ -69,6 +65,7 @@ export default {
 
 }
  .jumbotron{
+   margin-bottom: 0  !important;
 .btn{
   width: 202px;
   border-radius: 12px;
