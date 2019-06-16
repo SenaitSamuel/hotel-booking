@@ -1,16 +1,14 @@
 <template>
 <div class="[ page-wrapper ] ">
 <!-- As a heading -->
-
-<ol class=" [ breadcrumb ] ">
-          <li class=" [ breadcrumb-item ] ">
-            <a href="#">Dashboard</a>
-          </li>
-          <li class=" [ breadcrumb-item ] [ active ] ">Overview</li>
-        </ol>
 <!-- Icon Cards-->
+ <div class=" [ card col-md-12 ]  [ mb-3] ">
+          <div class=" [ card-header ] [ text-left] ">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+           Overview</div>
+          <div class=" [ card-body ] ">
         <div class=" [ row ] ">
-          <div class=" [ col-xl-3 col-sm-6 mb-3 ] ">
+          <div class=" [ col-md-6 mb-3 ] ">
             <div class=" [ card ] [ text-white bg-primary o-hidden h-100 ] ">
               <div class=" [ card-body ] ">
                 <div class=" [ card-body-icon ] ">
@@ -26,7 +24,7 @@
               </a>
             </div>
           </div>
-          <div class=" [ col-xl-3 col-sm-6 mb-3 ] ">
+          <div class=" [ col-md-6 mb-3 ] ">
             <div class=" [ card ]  [ text-white bg-warning o-hidden h-100 ] ">
               <div class=" [ card-body ] ">
                 <div class=" [ card-body-icon ] ">
@@ -43,7 +41,8 @@
             </div>
           </div>
 
-
+</div>
+</div>
         </div>
         </div>
 </template>

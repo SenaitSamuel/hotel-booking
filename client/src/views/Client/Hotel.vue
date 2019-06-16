@@ -66,14 +66,15 @@ export default {
   transform:scale(1.05);
   box-shadow:10px 10px 10px #888888;
 }
-.jumbotron{
+
+}
+ .jumbotron{
 .btn{
   width: 202px;
   border-radius: 12px;
   cursor: pointer;
 }
 }
- }
 
 @media only screen and (max-width : 767px) {
 

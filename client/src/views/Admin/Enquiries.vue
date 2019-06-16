@@ -2,14 +2,9 @@
 <div class=" [ page-wrapper ] ">
 <!-- As a heading -->
 
-<ol class=" [ breadcrumb ] ">
-          <li class=" [ breadcrumb-item ] ">
-            <a href="#">Dashboard</a>
-          </li>
-          <li class=" [ breadcrumb-item ]  [ active ] ">Enquiries</li>
-        </ol>
+
             <!-- List of enquiries -->
-        <div class=" [ card ]  [ mb-3] ">
+        <div class=" [ card col-md-12 ]  [ mb-3] ">
           <div class=" [ card-header ] ">
             <i class=" [ fas fa-table ] "></i>
            List of Enquiries</div>
@@ -72,7 +67,5 @@ export default {
 };
 </script>
 <style scoped lang="scss" >
-.navbar-brand{
-  font-size: 2.0rem;
-}
+
 </style>

@@ -1,14 +1,10 @@
 <template>
   <div class=" [ page-wrapper ]  ">
-<!-- As a heading -->
-
-<ol class=" [ breadcrumb ] ">
-          <li class=" [ breadcrumb-item ] ">
-            <a href="">Dashboard</a>
-          </li>
-          <li class=" [ breadcrumb-item ] [ active ] ">New Establishment</li>
-        </ol>
+     <div class=" [ card  col-md-12 ]  [ [ mb-3 ] ">
+          <div class=" [ card-body ] ">
     <NewEstablishmentComponent/>
+  </div>
+  </div>
   </div>
 </template>
 

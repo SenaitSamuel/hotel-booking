@@ -1,82 +1,75 @@
 <template>
-<div class=" [ page-wrapper ] ">
-     <nav class=" [ navbar ]  [ navbar-expand navbar-dark  bg-dark static-top ] ">
+    <div class=" [ page-wrapper ] ">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar" :class="{ active: active}"  >
+            <div class=" [ sidebar-header ] [ pt-3 ] ">
+                <h3>HOLIDAZE</h3>
+            </div>
 
-    <a class=" [ navbar-brand  ] [ mr-1 text-white ] " >HOLIDAZE</a>
-
-    <button class=" [ btn btn-link btn-sm ] [ text-white order-1 order-sm-0 ] " id="sidebarToggle"  @click="show = !show" href="#">
-     <i class="fas fa-bars"></i>
-    </button>
-
-    <!-- Navbar Search -->
-    <form class=" [ form-inline ] [ d-none d-md-inline-block ml-auto mr-0 mr-md-3 my-2 my-md-0 ]   ">
-      <div class=" [ input-group ] ">
-        <input type="text" class=" [ form-control ] " placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-        <div class=" [ input-group-append ] ">
-          <button class=" [ btn ]  [ btn-primary ] " type="button">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-    <!-- Navbar -->
-    <ul class=" [ navbar-nav ]  [ ml-auto ml-md-0 ] ">
-      <li class=" [ nav-item ]  [ dropdown no-arrow ] ">
-        <a class=" [ nav-link dropdown-toggle ] " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class=" [ fas fa-user-circle fa-fw ]  "></i>
-
-            {{name}}
-        </a>
-        <div class=" [ dropdown-menu ] [ dropdown-menu-right ] " aria-labelledby="userDropdown">
-          <a class=" [ dropdown-item ]  [ btn btn-primary ] " href="#" data-toggle="modal" data-target="#logoutModal"  @click="logout()">
-            <i class="[ fa fa-power-off ] "></i>
-                 <span>Logout</span>
-            </a>
-        </div>
-      </li>
-    </ul>
-  </nav>
- <!-- Sidebar -->
-    <div id=" [ sidebar-wrapper ] ">
-      <transition name="slide">
-    <ul class=" [ sidebar navbar-nav  ] [ p-2 ] " v-show="show">
-      <li class=" [ nav-item ] [ active ] ">
-        <router-link class=" [ nav-link ] " to="/dashBoard/Overview">
-          <i class=" [ fas fa-fw fa-tachometer-alt ] "></i>
+            <ul class=" [ navbar-nav ]  [ p-4  text-left ] ">
+      <li class=" [ nav-item ] [ active  p-2 ] ">
+        <router-link class=" [ nav-link ]  " to="/dashBoard/Overview">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Overview</span>
        </router-link>
       </li>
-      <li class=" [ nav-item ]  ">
-        <router-link class=" [ nav-link ] " to="/dashBoard/Enquiries">  <span>Enquiries</span></router-link>
+      <li class=" [ nav-item ]  [ p-2 ] ">
+        <router-link class=" [ nav-link ]    " to="/dashBoard/Enquiries">  <span>Enquiries</span></router-link>
          </li>
-        <li class="nav-item ">
-          <router-link class=" [ nav-link ] " to="/dashBoard/Messages"><span>Messages</span> </router-link>
+        <li class=" [ nav-item ] [ p-2 ]  ">
+          <router-link class=" [ nav-link ]  " to="/dashBoard/Messages"><span>Messages</span> </router-link>
         </li>
-        <li class=" [ nav-item ] ">
-          <router-link class=" [ nav-link ] " to="/dashBoard/NewEstablishment"> <span>New Establishment</span> </router-link>
+        <li class=" [ nav-item ] [ p-2 ]  ">
+          <router-link class=" [ nav-link ]   " to="/dashBoard/NewEstablishment"> <span>New Establishment</span> </router-link>
          </li>
-          <li class=" [ nav-item ] ">
+          <li class=" [ nav-item ] [ p-2 ] ">
              <a class=" [ nav-link ] "  href="#" @click="logout()">
-               <i class=" [ fa fa-power-off ]  "></i>
+               <i class="fa fa-power-off"></i>
                  <span>Logout</span>
                    </a>
                 </li>
     </ul>
-  </transition>
-        <!-- Page Content  -->
 
+        </nav>
 
-<div id="page-wrapper">
+        <!-- Page Content Holder -->
+        <div id="content-wrapper" class=" [ container-fluid  ] ">
+
+            <nav class=" [ navbar ]  [ navbar-expand-lg navbar-light bg-dark ] ">
+                <div class=" [ container-fluid ] ">
+
+                    <button type="button" id="sidebarCollapse" class=" [ navbar-btn ]  "  @click="closeMenu()" >
+                      <i class="fas fa-bars"></i>
+                    </button>
+
+                </div>
+    <!-- Navbar -->
+              <ul class=" [ navbar-nav ]  [ ml-auto ml-md-0 ] ">
+                <li class=" [ nav-item ]  [ dropdown no-arrow ] ">
+                  <a class=" [ nav-link dropdown-toggle text-white ] " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   <i class=" [ fas fa-user-circle fa-fw ]  "></i>
+
+                      {{name}}
+                  </a>
+                  <div class=" [ dropdown-menu ] [ dropdown-menu-right ] " aria-labelledby="userDropdown">
+                    <a class=" [ dropdown-item ]  " href="#" data-toggle="modal" data-target="#logoutModal"  @click="logout()">
+                      <i class="[ fa fa-power-off ] "></i>
+                          <span>Logout</span>
+                      </a>
+                  </div>
+                </li>
+              </ul>
+                      </nav>
+
 
         <router-view/>
-      </div>
-        </div>
-        </div>
 
-
+        </div>
+    </div>
 </template>
 
 <script>
+import style from '@/styles.scss';
 // @ is an alias to /src
 
 export default {
@@ -85,7 +78,8 @@ export default {
   data(){
       return{
         name:'Admin',
-        show: true,
+        active: false,
+
       }
   },
    beforeCreate: function () {
@@ -94,10 +88,8 @@ export default {
     }
   },
   methods:{
-    closeMenu(e){
-      e.preventDefault();
-
-    $(".sidebar").toggleClass("toggled");
+    closeMenu(){
+       this.active = !this.active;
     },
      logout(){
        localStorage.clear()
@@ -117,26 +109,30 @@ $button-color: #f55600;
 $white-color: #ffffff;
 $form-color: #e5e5e6;
 
-
-
-.slide-enter {
-  transform: translate(-100%, 0);
+.page-wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    perspective: 1500px;
 }
 
-.bg-dark {
-    background-color: $main-bg-color !important;
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: $main-bg-color;
+    color: #fff;
+    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    transform-origin: bottom left;
+    &.active {
+    margin-left: -250px;
+    transform: rotateY(100deg);
+}
+    .sidebar-header {
+    background:  $main-bg-color;
+}
 }
 
-
- .navbar {
-    transition: background-color 0.2s ease;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-
-    .navbar-brand {
-      color: $hover-color;
-      font-size:36px;
-    }
-  .navbar-nav {
+ .navbar-nav {
     .router-link-exact-active{
      color: $hover-color !important;
      }
@@ -152,107 +148,42 @@ $form-color: #e5e5e6;
         }
     }
   }
-   .navbar-toggler {
-     color: $white-color;
-     border-color: $white-color;
-   }
+
+
+#content-wrapper{
+  width: 100%;
+  padding: 0px;
+  min-height: 100vh;
+   transition: all 0.3s;
+
+     .bg-dark {
+    background-color: $main-bg-color !important;
+    }
+  #sidebarCollapse{
+    width: 40px;
+    height: 40px;
+    background:$white-color;
+    transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
+    transition-delay: 0.2s;
+    cursor: pointer;
+}
+ .dropdown-item:hover {
+   color:$hover-color;
  }
 
 
-#sidebar-wrapper {
-    display: flex;
-     align-items: stretch;
-      #content-wrapper {
-    overflow-x: hidden;
-    width: 100%;
-    padding-top: 1rem;
-  }
 }
 
-.sidebar {
-
-  background-color: $main-bg-color;
-  min-height: 100vh;
-  .nav-item {
-    .nav-link {
-      color: $white-color;
-      &:active,
-      &:focus,
-      &:hover {
-        color: $hover-color;
-      }
+@media (max-width: 768px) {
+#sidebar {
+        margin-left: -250px;
+        transform: rotateY(90deg);
+        &.active {
+        margin-left: 0;
+        transform: none;
     }
-  }
-  &.toggled {
-    width: 0 !important;
-    overflow: hidden;
-  }
-}
-
-@mixin rotate {
-  transform: rotate(15deg);
-}
-
-@mixin sidebar-icons {
-  .nav-item {
-    &:last-child {
-      margin-bottom: 1rem;
     }
-    .nav-link {
-      text-align: center;
-      padding: 0.75rem 1rem;
-      span {
-        font-size: 0.65rem;
-        display: block;
-      }
-    }
-    .dropdown-menu {
-      position: absolute !important;
-      transform: none !important;
-      margin: 0;
-      &.dropup {
-        bottom: 0;
-        top: auto !important;
-      }
-    }
-    &.dropdown .dropdown-toggle::after {
-      display: none;
-    }
-  }
-}
 
-
-@media (min-width: 768px) {
-  .sidebar {
-
-
-    .nav-item {
-      .nav-link {
-        display: block;
-        width: 100%;
-        text-align: left;
-        padding: 1rem;
-
-        span {
-          font-size: 1rem;
-          display: inline;
-        }
-      }
-      .dropdown-menu {
-        position: static !important;
-        margin: 0 1rem;
-        // Position fix for Firefox
-        top: 0;
-      }
-      &.dropdown .dropdown-toggle::after {
-        display: block;
-      }
-    }
-    &.toggled {
-      overflow: visible;
-      width: 100% !important;
-    }
-  }
 }
 
 
