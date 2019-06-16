@@ -7,8 +7,14 @@
                         <hr class=" [ bg-light ]   [ mb-5 ] ">
                 </div>
                 <form @submit="Submit" class=" [ p-3 ] " id="myForm" method="POST" action="http://localhost/hotel-booking/server/enquiry-success.php" >
-                    <div class=" [ form-group ]   [ mb-5 ] "  >
-                    <input list="establishment" type="text" name="establishment" id="establishment" class=" [ form-control ]  [ p-4 ] " :class="{ 'error-border':  inputEstablishmentError }" v-model="user.establishment" required  placeholder="Establishment*" >
+                    <div class="   [  form-group  mb-5 ] "  >
+                    <select list="establishment" type="text" name="establishment" id="establishment" class=" [  show-menu-arrow ]  [ p-4 ]  "
+                    :class="{ 'error-border':  inputEstablishmentError }" v-model="user.establishment" required
+                    data-style="form-control" data-live-search="true"  >
+                    <option  v-for="(option, index) in establishments" :key="index">
+                      {{ option.establishmentName}}
+                      </option>
+                     </select>
                      <div  v-if="showEstablishmentError"><span class="error" >Please enter Establishment </span> </div><br>
                    </div>
 
@@ -23,11 +29,11 @@
                 </div>
 
                  <div class=" [ form-group ]   [ mb-5 ] "   >
-                  <input type="date" name="checkin" id="checkin" class=" [ form-control ]  [ p-4 ] " :class="{ 'error-border': inputCheckinError }"  required   v-model="user.checkin">
+                  <input type="date" name="checkin" id="checkin" class=" [ form-control ]  [ p-4 ] " :class="{ 'error-border': inputCheckinError }"  required  placeholder="dd/mm/yyyy" v-model="user.checkin">
                   <div  v-if="showCheckinError"><span class="error" >Please enter checkin </span> </div><br>
                 </div>
                  <div class=" [ form-group ]   [ mb-5 ] "   >
-                  <input type="date" name="checkout" id="checkout" class=" [ form-control ]   [ p-4 ] "  :class="{ 'error-border': inputCheckoutError }"  required   v-model="user.checkout">
+                  <input type="date" name="checkout" id="checkout" class=" [ form-control ]   [ p-4 ] "  :class="{ 'error-border': inputCheckoutError }"  required  placeholder="dd/mm/yyyy"  v-model="user.checkout">
                    <div  v-if="showCheckoutError"><span class="error" >Please enter checkout </span> </div><br>
                 </div>
                      <div>
@@ -41,7 +47,7 @@
 
 
 <script>
-
+import axios from 'axios';
 export default {
   name: 'EnquiryComponent',
    data: function () {
@@ -63,12 +69,20 @@ export default {
           inputEmailError: false,
           inputCheckinError: false,
           inputCheckoutError: false,
-          message:" "
-
+          message:" ",
+           establishments:[ ],
 
       };
       },
+       created() {
+    // Fetch Data
+    this.fetchData();
+},
    methods: {
+       fetchData: function () {
+           axios.get('./establishments.json' )
+           .then(response => this.establishments = response.data)
+     },
       Submit() {
          if (this.user.clientName== " " || this.user.email == " " || this.user.establishment == " " || this.user.checkin == " " || this.user.checkout== " " ) {
           this.message = 'Please Fill the blank form';
@@ -89,7 +103,8 @@ export default {
          alert("Enquiry is submitted");
       }
 
-      }
+      },
+
 
 }
 };
@@ -97,7 +112,23 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+select {
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 
+}
 .btn{
   width: 202px;
 }

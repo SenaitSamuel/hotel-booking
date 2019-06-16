@@ -120,6 +120,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 input{
-  cursor:pointer;
+  cursor:text;
+
+}
+.btn{
+  width: 202px;
+}
+span.error {
+  color: #9F3A38;
 }
 </style>
